@@ -28,5 +28,8 @@
     "method-override": "^2.3.3",
     "moment": "^2.11.1",
     "mongoose": "^4.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
   }
 }
