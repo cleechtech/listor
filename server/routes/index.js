@@ -2,10 +2,10 @@ var express = require('express'),
 	path = require('path'),
 	mongoose = require('mongoose'),
 	User = mongoose.model('User'),
-	rootPath = path.normalize(__dirname + '/../'),
+	rootPath = path.normalize(__dirname + '/../../'),
 	router = express.Router();
 
-var utils = require('./utils');
+var utils = require('../utils');
 
 /*
  |--------------------------------------------------------------------------

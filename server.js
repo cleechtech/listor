@@ -24,8 +24,12 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 // ROUTES
-var indexRoutes = require('./server/routes');
+var indexRoutes = require('./server/routes/index');
+var emailSender = require('./server/routes/sendEmails');
+
 app.use('/', indexRoutes);
+app.use('/emails', emailSender);
+
 
 // Start server
 app.listen(envConfig.port, function(){

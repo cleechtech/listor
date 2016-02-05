@@ -1,7 +1,17 @@
 
 <br>
 <br>
-<div class='jumbotron text-center'>
-	<h1>Welcome to mean-auth-starter</h1>
+<div class='container'>
+	<form>
+		<textarea 
+			placeholder="Contact list goes here..."
+			class="form-control" 
+			rows="5" 
+			style='white-space: pre-wrap' 
+			ng-model='contactList'></textarea>
 
+		<div class='btn btn-primary pull-right' ng-click='sendEmails()'>
+			Send Emails
+		</div>
+	</form>
 </div>

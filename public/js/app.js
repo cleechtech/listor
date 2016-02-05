@@ -1,5 +1,5 @@
 
-var app = angular.module('mean-auth-starter', [
+var app = angular.module('Listor', [
 	'ui.router',
 	'satellizer'
 ]);
