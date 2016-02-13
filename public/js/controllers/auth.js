@@ -1,11 +1,14 @@
 
 app.controller('AuthCtrl', function($scope, $auth, $location, Account){
 
-	// For facebook login
-	// $scope.authenticate = function(provider) {
-	// 	$auth.authenticate(provider);
-	// 	$location.path('/');
-	// };
+	// For Google login
+	$scope.authenticate = function(provider) {
+      $auth.authenticate(provider).then(function(res){
+      	console.log(res.data.token);
+      	$auth.setToken(res);
+      });
+      $location.path('/');
+    };
 
 	// register new user
 	$scope.newUser = {};

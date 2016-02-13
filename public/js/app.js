@@ -6,9 +6,9 @@ var app = angular.module('Listor', [
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 	// satellizer config
-	// $authProvider.facebook({
-	// 	clientId: 'Facebook App ID'
-	// });
+	$authProvider.google({
+      clientId: '925082493768-e6ftet5isbrrhtg2tra4v7lhr23v6619.apps.googleusercontent.com'
+    });
 
     // define routes
 	$stateProvider

@@ -1,6 +1,7 @@
-mean-auth-starter
+Listor
 =====
 
+> Send emails
 
 
 ### Getting started
