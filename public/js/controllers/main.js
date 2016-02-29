@@ -1,12 +1,14 @@
 
-app.controller('MainCtrl', function($scope, $http){
-	$scope.contactList = '';
-	$scope.sendEmails = function(){
-		var contacts = { contactList: $scope.contactList }
-		// send to server
-		return $http.post('/emails/sendToList', contacts).then(function(res){
+app.controller('MainCtrl', function($scope, Candidate){
+	$scope.addCandidate = function(candidate){
+		console.log(candidate);
+		return Candidate.add(candidate).then(function(res){
 			console.log(res);
-			$scope.contactList = '';
+			$scope.reset();
 		});
+	};
+
+	$scope.reset = function() {
+		$scope.c = angular.copy($scope.master);
 	};
 });

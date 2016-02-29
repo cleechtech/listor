@@ -13,6 +13,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 
 // DATABASE CONFIG
 require('./server/models/user');
+require('./server/models/candidate');
 mongoose.connect(envConfig.db);
 
 // EXPRESS CONFIG
@@ -25,11 +26,10 @@ app.use(express.static(__dirname + '/public'));
 
 // ROUTES
 var indexRoutes = require('./server/routes/index');
-var emailSender = require('./server/routes/sendEmails');
+var candidatesRoutes = require('./server/routes/candidates');
 
+app.use('/api/candidates', candidatesRoutes);
 app.use('/', indexRoutes);
-app.use('/emails', emailSender);
-
 
 // Start server
 app.listen(envConfig.port, function(){

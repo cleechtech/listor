@@ -1,15 +1,19 @@
 Listor
 =====
 
-> Send emails
-
+> Candidate tracking system
 
 ### Getting started
 ```
 $ git clone <this_repo_url>
-$ cd mean-auth-starter
-$ npm install
+$ cd listor
+$ npm install && bower install
 $ nodemon server
+```
+
+#### Bundle up all client side js into one output file (production)
+```
+$ gulp watch
 ```
 
 ### Deploy to Heroku

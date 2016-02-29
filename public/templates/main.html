@@ -2,16 +2,27 @@
 <br>
 <br>
 <div class='container'>
-	<form>
-		<textarea 
-			placeholder="Contact list goes here..."
-			class="form-control" 
-			rows="5" 
-			style='white-space: pre-wrap' 
-			ng-model='contactList'></textarea>
+	<div class='row'>
+		<h3>Add candidate</h3>
+		<form>
+			<input type='text' 
+				class='form-control' 
+				placeholder='Name'
+				ng-model='c.displayName'>
 
-		<div class='btn btn-primary pull-right' ng-click='sendEmails()'>
-			Send Emails
-		</div>
-	</form>
+			<input type='email' 
+				class='form-control' 
+				placeholder='Email'
+				ng-model='c.email'>
+
+			<input type='text' 
+				class='form-control' 
+				placeholder='Phone'
+				ng-model='c.phone'>
+
+			<div class='btn btn-primary btn-lg pull-right' ng-click='addCandidate(c)'>
+				Submit
+			</div>
+		</form>
+	</div>
 </div>
