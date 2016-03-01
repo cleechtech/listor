@@ -6,11 +6,13 @@ var express = require('express'),
 
 /*
  |--------------------------------------------------------------------------
- | All candidates
+ | Get all candidates for logged in user
  |--------------------------------------------------------------------------
  */
 router.get('/', function(req, res){
-	Candidate.find({}, function(err, candidates){
+	var user_id = req.query.owner;
+
+	Candidate.find({ owner: user_id }, function(err, candidates){
 		res.send(candidates);
 	});
 });
@@ -30,11 +32,13 @@ router.post('/add', function(req, res){
 		}
 
 		var candidate = new Candidate({
-		  displayName: req.body.displayName,
-		  email: req.body.email,
-		  phone: req.body.phone
+			owner: req.body.owner,
+			displayName: req.body.displayName,
+			email: req.body.email,
+			phone: req.body.phone,
+			status: req.body.status,
+			comments: req.body.comments
 		});
-
 		candidate.save(function(err, result){
 			if (err) {
 		  		console.error('Error saving the candidate!');
