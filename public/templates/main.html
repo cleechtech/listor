@@ -59,15 +59,35 @@
 	<div class='row'>
 		<div class='col-sm-3'>
 			<h2>Needs Approval</h2>
+			<div class='row' ng-repeat='c in needsApproval'>
+				<h4>{{ c.displayName }}</h4> 
+				<p>{{ c.email }}, {{ c.phone }}</p>
+				<p>{{ c.comments }}</p>
+			</div>
 		</div>
 		<div class='col-sm-3'>
 			<h2>Needs Feedback</h2>
+			<div class='row' ng-repeat='c in needsFeedback'>
+				<h4>{{ c.displayName }}</h4> 
+				<p>{{ c.email }}, {{ c.phone }}</p>
+				<p>{{ c.comments }}</p>
+			</div>
 		</div>
 		<div class='col-sm-3'>
 			<h2>Needs Interview</h2>
+			<div class='row' ng-repeat='c in needsInterview'>
+				<h4>{{ c.displayName }}</h4> 
+				<p>{{ c.email }}, {{ c.phone }}</p>
+				<p>{{ c.comments }}</p>
+			</div>
 		</div>
 		<div class='col-sm-3'>
 			<h2>Final Stages</h2>
+			<div class='row' ng-repeat='c in finalStages'>
+				<h4>{{ c.displayName }}</h4> 
+				<p>{{ c.email }}, {{ c.phone }}</p>
+				<p>{{ c.comments }}</p>
+			</div>
 		</div>
 	</div>
 </div>

@@ -49,4 +49,36 @@ router.post('/add', function(req, res){
 	});
 });
 
+router.get('/needsApproval', function(req, res){
+	var user_id = req.query.owner;
+
+	Candidate.find({ owner: user_id, status: 'Needs Approval' }, function(err, candidates){
+		res.send(candidates);
+	});
+});
+
+router.get('/needsFeedback', function(req, res){
+	var user_id = req.query.owner;
+
+	Candidate.find({ owner: user_id, status: 'Needs Feedback' }, function(err, candidates){
+		res.send(candidates);
+	});
+});
+
+router.get('/needsInterview', function(req, res){
+	var user_id = req.query.owner;
+
+	Candidate.find({ owner: user_id, status: 'Needs Interview' }, function(err, candidates){
+		res.send(candidates);
+	});
+});
+
+router.get('/finalStages', function(req, res){
+	var user_id = req.query.owner;
+
+	Candidate.find({ owner: user_id, status: 'Final Stages' }, function(err, candidates){
+		res.send(candidates);
+	});
+});
+
 module.exports = router;
