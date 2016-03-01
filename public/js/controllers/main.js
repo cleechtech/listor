@@ -15,9 +15,6 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 	};
 
 	$scope.refreshCandidates = function(){
-		// Candidate.all().then(function(res){
-		// 	console.log(res.data);
-		// });
 		$q.all([
 			Candidate.needsApproval(),
 			Candidate.needsFeedback(),

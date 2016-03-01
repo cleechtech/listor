@@ -3,6 +3,8 @@ Listor
 
 > Candidate tracking system
 
+* Angular Drag N Drop: http://marceljuenemann.github.io/angular-drag-and-drop-lists/demo/#/simple
+
 ### Getting started
 ```
 $ git clone <this_repo_url>

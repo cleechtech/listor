@@ -49,36 +49,44 @@ router.post('/add', function(req, res){
 	});
 });
 
-router.get('/needsApproval', function(req, res){
-	var user_id = req.query.owner;
+/*
+ |--------------------------------------------------------------------------
+ | Get Candidates based on status
+ |--------------------------------------------------------------------------
+ */
 
-	Candidate.find({ owner: user_id, status: 'Needs Approval' }, function(err, candidates){
-		res.send(candidates);
-	});
+router.get('/needsApproval', function(req, res){
+	getCandidatesWithStatus(req, res, 'Needs Approval');
 });
 
 router.get('/needsFeedback', function(req, res){
-	var user_id = req.query.owner;
-
-	Candidate.find({ owner: user_id, status: 'Needs Feedback' }, function(err, candidates){
-		res.send(candidates);
-	});
+	getCandidatesWithStatus(req, res, 'Needs Feedback');
 });
 
 router.get('/needsInterview', function(req, res){
-	var user_id = req.query.owner;
-
-	Candidate.find({ owner: user_id, status: 'Needs Interview' }, function(err, candidates){
-		res.send(candidates);
-	});
+	getCandidatesWithStatus(req, res, 'Needs Interview');
 });
 
 router.get('/finalStages', function(req, res){
+	getCandidatesWithStatus(req, res, 'Final Stages');
+});
+
+// helper function
+function getCandidatesWithStatus(req, res, status){
 	var user_id = req.query.owner;
 
-	Candidate.find({ owner: user_id, status: 'Final Stages' }, function(err, candidates){
+	Candidate.find({ owner: user_id, status: status }, function(err, candidates){
 		res.send(candidates);
 	});
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | Update a Candidate's Status
+ |--------------------------------------------------------------------------
+ */
+router.put('/update', function(req, res){
+	// update candidate's status
 });
 
 module.exports = router;

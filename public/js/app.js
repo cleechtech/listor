@@ -1,7 +1,8 @@
 
 var app = angular.module('Listor', [
 	'ui.router',
-	'satellizer'
+	'satellizer',
+	'dndLists'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider){
