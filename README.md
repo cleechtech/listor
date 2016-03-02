@@ -3,6 +3,8 @@ Listor
 
 > Candidate tracking system
 
+* Node.js, Express, MongoDB, Mongoose ORM, Angular.js, Javascript, bower, gulp, heroku, authentication, data modeling, CSS3, HTML5, Sublime Text, Notepad++ (jk) and Bootstrap
+
 * Angular Drag N Drop: http://marceljuenemann.github.io/angular-drag-and-drop-lists/demo/#/simple
 
 ### Getting started
