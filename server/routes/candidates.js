@@ -39,6 +39,7 @@ router.post('/add', function(req, res){
 			status: req.body.status,
 			comments: req.body.comments
 		});
+		console.log(candidate);
 		candidate.save(function(err, result){
 			if (err) {
 		  		console.error('Error saving the candidate!');
@@ -79,6 +80,17 @@ function getCandidatesWithStatus(req, res, status){
 		res.send(candidates);
 	});
 }
+
+/*
+ |--------------------------------------------------------------------------
+ | Update Candidate Status
+ |--------------------------------------------------------------------------
+ */
+
+ router.put('/updateStatus', function(){
+ 	// TODO
+ });
+
 
 /*
  |--------------------------------------------------------------------------

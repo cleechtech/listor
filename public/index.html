@@ -21,13 +21,11 @@
 <body>
   <div class='container'>
     <!-- Navbar -->
-    <nav class='row' ng-controller='NavCtrl'>
-      <ul class='nav nav-pills pull-left'>
-        <!--
-        <li ui-sref-active="active">
-          <a ui-sref='home'>Listor</a>
+    <nav class='row' ng-controller='NavCtrl' class="navbar navbar-default">
+      <ul class='nav pull-left'>
+        <li>
+          <a ui-sref='home'>Home</a>
         </li>
-        -->
       </ul>
       <ul class='nav nav-pills pull-right'>
         
@@ -65,8 +63,8 @@
   <script src='js/controllers/nav.js'></script>
   <script src='js/controllers/logout.js'></script>
   <script src='js/controllers/profile.js'></script>
+  <script src='js/directives/candidatelist.js'></script>
  
-
   <!-- bundle 
   <script src='bundle.js'></script>
   -->

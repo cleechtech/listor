@@ -2,6 +2,7 @@
 app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 	$scope.master = {};
 	$scope.c = {};
+	$scope.showAddForm = false;
 
 	$scope.addCandidate = function(candidate){
 		candidate.owner = $rootScope.user._id;

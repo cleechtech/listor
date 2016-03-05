@@ -5,88 +5,36 @@
 	<h2>Log in to start tracking your candidates</h2>
 </div>
 <div class='container' ng-if="isAuthenticated()">
-	<div class='row' >
-		<h2>Add candidate</h2>
-		<form>
-			<div class="form-group">
-				<label>Name</label>
-				<input type='text' 
-					class='form-control' 
-					placeholder='Name'
-					ng-model='c.displayName'>
-			</div>
-
-			<div class="form-group">
-				<label>Email</label>
-				<input type='email' 
-					class='form-control' 
-					placeholder='Email'
-					ng-model='c.email'>
-			</div>
-
-			<div class="form-group">
-				<label>Phone</label>
-				<input type='text' 
-					class='form-control' 
-					placeholder='Phone'
-					ng-model='c.phone'>
-			</div>
-
-			<div class="form-group">
-			  <label>Status</label>
-			  <select class="form-control" ng-model='c.status'>
-			    <option>Needs Approval</option>
-			    <option>Needs Feedback</option>
-			    <option>Needs Interview</option>
-			    <option>Final Stages</option>
-			  </select>
-			</div>
-
-			<div class='form-group'>
-				<textarea class='form-control' ng-model='c.comments'></textarea>
-			</div>
-
-			<div class='btn btn-primary btn-lg pull-right' ng-click='addCandidate(c)'>
-				Submit
-			</div>
-		</form>
-	</div>
+	<div ng-include='"templates/addCandidate.html"'></div>
 	<div class='row'>
-		<div class='btn btn-success' ng-click='refreshCandidates()'>
-			<i class='fa fa-refresh'></i>
+		<div class='btn btn-default' ng-click='refreshCandidates()'>
+			<i class='fa fa-refresh'></i> Refresh board
 		</div>
 	</div>
 	<div class='row'>
 		<div class='col-sm-3'>
 			<h2>Needs Approval</h2>
+
 			<div class='row' ng-repeat='c in needsApproval'>
-				<h4>{{ c.displayName }}</h4> 
-				<p>{{ c.email }}, {{ c.phone }}</p>
-				<p>{{ c.comments }}</p>
+				<candidate></candidate>
 			</div>
 		</div>
 		<div class='col-sm-3'>
 			<h2>Needs Feedback</h2>
 			<div class='row' ng-repeat='c in needsFeedback'>
-				<h4>{{ c.displayName }}</h4> 
-				<p>{{ c.email }}, {{ c.phone }}</p>
-				<p>{{ c.comments }}</p>
+				<candidate></candidate>
 			</div>
 		</div>
 		<div class='col-sm-3'>
 			<h2>Needs Interview</h2>
 			<div class='row' ng-repeat='c in needsInterview'>
-				<h4>{{ c.displayName }}</h4> 
-				<p>{{ c.email }}, {{ c.phone }}</p>
-				<p>{{ c.comments }}</p>
+				<candidate></candidate>
 			</div>
 		</div>
 		<div class='col-sm-3'>
 			<h2>Final Stages</h2>
 			<div class='row' ng-repeat='c in finalStages'>
-				<h4>{{ c.displayName }}</h4> 
-				<p>{{ c.email }}, {{ c.phone }}</p>
-				<p>{{ c.comments }}</p>
+				<candidate></candidate>
 			</div>
 		</div>
 	</div>
