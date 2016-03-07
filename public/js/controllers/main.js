@@ -11,6 +11,18 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 		});
 	};
 
+	$scope.deleteCandidate = function(c, listName){
+		var ursure = confirm('sure you want to delete ', c.displayName, '?');
+		if(ursure){
+			Candidate.remove(c._id).then(function(){
+				var list = $scope.models.lists[listName];
+				// remove from list
+				list.splice(list.indexOf(c), 1);
+			});
+		}
+		
+	};
+
 	$scope.reset = function() {
 		$scope.c = angular.copy($scope.master)
 	};

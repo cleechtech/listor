@@ -19,6 +19,9 @@ app.factory('Candidate', function($http, $rootScope) {
 				status: newStatus
 			});
 		},
+		remove: function(id){
+			return $http.delete('/api/candidates/' + id);
+		},
 		// get all current user's candidates
 		all: function(){
 			return request_candidates('/api/candidates');

@@ -39,7 +39,7 @@ router.post('/add', function(req, res){
 			status: req.body.status,
 			comments: req.body.comments
 		});
-		console.log(candidate);
+
 		candidate.save(function(err, result){
 			if (err) {
 		  		console.error('Error saving the candidate!');
@@ -87,13 +87,23 @@ function getCandidatesWithStatus(req, res, status){
  |--------------------------------------------------------------------------
  */
 router.put('/update', function(req, res){
-	console.log('in put request');
  	var id = req.body.id;
  	var status = req.body.status;
 
  	Candidate.findByIdAndUpdate(id, { $set: { status: status }}, function(err, c){
  		// callback for after update operation
  	});
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Delete Candidate
+ |--------------------------------------------------------------------------
+ */
+router.delete('/:id', function(req, res){
+	Candidate.remove({_id: req.params.id}, function(err){
+		res.send({ message: 'Candidate removed!'});
+	});
 });
 
 module.exports = router;
