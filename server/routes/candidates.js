@@ -83,22 +83,17 @@ function getCandidatesWithStatus(req, res, status){
 
 /*
  |--------------------------------------------------------------------------
- | Update Candidate Status
- |--------------------------------------------------------------------------
- */
-
- router.put('/updateStatus', function(){
- 	// TODO
- });
-
-
-/*
- |--------------------------------------------------------------------------
  | Update a Candidate's Status
  |--------------------------------------------------------------------------
  */
 router.put('/update', function(req, res){
-	// update candidate's status
+	console.log('in put request');
+ 	var id = req.body.id;
+ 	var status = req.body.status;
+
+ 	Candidate.findByIdAndUpdate(id, { $set: { status: status }}, function(err, c){
+ 		// callback for after update operation
+ 	});
 });
 
 module.exports = router;

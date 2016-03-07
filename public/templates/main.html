@@ -14,13 +14,13 @@
 	<div class="row">
 		<div ng-repeat="(listName, list) in models.lists" class="col-md-3">
 			<h2>{{listName}}</h2>
-			<ul dnd-list="list" class="ng-scope">
+			<ul dnd-list="list" dnd-drop='droppedTo(listName, item)'>
 	    		<li ng-repeat="item in list" 
 	    			dnd-draggable="item" 
 	    			dnd-moved="list.splice($index, 1)" 
 	    			dnd-effect-allowed="move" 
 	    			dnd-selected="models.selected = item" 
-	    			ng-class="{'selected': models.selected === item}" 
+	    			ng-class="{'selected': models.selected === item}"
 	    			draggable="true">
 	    			
 	    			<candidate></candidate>

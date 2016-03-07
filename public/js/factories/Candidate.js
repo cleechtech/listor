@@ -13,6 +13,12 @@ app.factory('Candidate', function($http, $rootScope) {
 		add: function(candidate){
 			return $http.post('/api/candidates/add', candidate);
 		},
+		updateStatus: function(id, newStatus){
+			return $http.put('/api/candidates/update', {
+				id: id,
+				status: newStatus
+			});
+		},
 		// get all current user's candidates
 		all: function(){
 			return request_candidates('/api/candidates');

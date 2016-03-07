@@ -42,8 +42,17 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 		});
 	};
 
+	$scope.droppedTo = function(listName, item){
+		$scope.models.lists[listName].unshift(item);
+		console.log(item._id, listName);
+		Candidate.updateStatus(item._id, listName);
+		return true;
+	};
+
     // Model to JSON for demo purpose
-    $scope.$watch('models', function(model) {
-        $scope.modelAsJson = angular.toJson(model, true);
-    }, true);
+    // $scope.$watch('models', function(model) {
+    //     $scope.modelAsJson = angular.toJson(model, true);
+    //     console.log(model);
+    //     ;
+    // }, true);
 });
