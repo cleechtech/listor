@@ -11,31 +11,21 @@
 			<i class='fa fa-refresh'></i> Refresh board
 		</div>
 	</div>
-	<div class='row'>
-		<div class='col-sm-3'>
-			<h2>Needs Approval</h2>
-
-			<div class='row' ng-repeat='c in needsApproval'>
-				<candidate></candidate>
-			</div>
-		</div>
-		<div class='col-sm-3'>
-			<h2>Needs Feedback</h2>
-			<div class='row' ng-repeat='c in needsFeedback'>
-				<candidate></candidate>
-			</div>
-		</div>
-		<div class='col-sm-3'>
-			<h2>Needs Interview</h2>
-			<div class='row' ng-repeat='c in needsInterview'>
-				<candidate></candidate>
-			</div>
-		</div>
-		<div class='col-sm-3'>
-			<h2>Final Stages</h2>
-			<div class='row' ng-repeat='c in finalStages'>
-				<candidate></candidate>
-			</div>
+	<div class="row">
+		<div ng-repeat="(listName, list) in models.lists" class="col-md-3">
+			<h2>{{listName}}</h2>
+			<ul dnd-list="list" class="ng-scope">
+	    		<li ng-repeat="item in list" 
+	    			dnd-draggable="item" 
+	    			dnd-moved="list.splice($index, 1)" 
+	    			dnd-effect-allowed="move" 
+	    			dnd-selected="models.selected = item" 
+	    			ng-class="{'selected': models.selected === item}" 
+	    			draggable="true">
+	    			
+	    			<candidate></candidate>
+	    		</li>
+			</ul>
 		</div>
 	</div>
 </div>

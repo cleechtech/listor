@@ -26,8 +26,24 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 			$scope.needsFeedback = res[1].data;
 			$scope.needsInterview = res[2].data;
 			$scope.finalStages = res[3].data;
+
+			// For the drag and drop
+			$scope.models = {
+		        selected: null,
+		        lists: {
+		        	"Needs Approval": $scope.needsApproval, 
+		        	"Needs Feedback": $scope.needsFeedback,
+		        	"Needs Interview": $scope.needsInterview,
+		        	"Final Stages": $scope.finalStages
+		        }
+		    };
 		}).catch(function(err){
 			console.error(err);
 		});
 	};
+
+    // Model to JSON for demo purpose
+    $scope.$watch('models', function(model) {
+        $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
 });
