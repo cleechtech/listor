@@ -18,6 +18,11 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 			templateUrl: "templates/main.html",
 			controller: 'MainCtrl'
 		})
+		.state('jobs', {
+			url: "/jobs",
+			templateUrl: "templates/jobs.html",
+			controller: 'JobsCtrl'
+		})
 		.state('register', {
 			url: "/register",
 			templateUrl: "templates/register.html",

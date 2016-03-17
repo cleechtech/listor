@@ -14,6 +14,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 // DATABASE CONFIG
 require('./server/models/user');
 require('./server/models/candidate');
+require('./server/models/job');
 mongoose.connect(envConfig.db);
 
 // EXPRESS CONFIG
@@ -27,8 +28,10 @@ app.use(express.static(__dirname + '/public'));
 // ROUTES
 var indexRoutes = require('./server/routes/index');
 var candidatesRoutes = require('./server/routes/candidates');
+var jobsRoutes = require('./server/routes/jobs');
 
 app.use('/api/candidates', candidatesRoutes);
+app.use('/api/jobs', jobsRoutes);
 app.use('/', indexRoutes);
 
 // Start server
