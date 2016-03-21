@@ -11,7 +11,7 @@
 				<label>Name</label>
 				<input type='text' 
 					class='form-control' 
-					placeholder='Name'
+					placeholder='Name (required)'
 					ng-model='c.displayName'
 					required>
 			</div>
@@ -20,7 +20,7 @@
 				<label>Email</label>
 				<input type='email' 
 					class='form-control' 
-					placeholder='Email'
+					placeholder='Email (required)'
 					ng-model='c.email'
 					required>
 			</div>
@@ -29,7 +29,7 @@
 				<label>Phone</label>
 				<input type='text' 
 					class='form-control' 
-					placeholder='Phone'
+					placeholder='Phone (Optional. At least 10 digits)'
 					ng-model='c.phone'>
 			</div>
 
@@ -44,7 +44,7 @@
 			</div>
 
 			<div class='form-group'>
-				<textarea class='form-control' ng-model='c.comments'></textarea>
+				<textarea class='form-control' ng-model='c.comments' placeholder='Comments (optional)'></textarea>
 			</div>
 
 			<div class='btn btn-primary btn-lg pull-right' ng-click='addCandidate(c)' ng-disabled="addCandidateForm.$invalid">

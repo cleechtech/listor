@@ -23,7 +23,6 @@ router.get('/', function(req, res){
  |--------------------------------------------------------------------------
  */
 router.post('/add', function(req, res){
-	console.log('owner: ', req.query.owner);
 
 	Candidate.findOne({ email: req.body.email }, function(err, existingCandidate){
 		if (existingCandidate) {

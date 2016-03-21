@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 // define schema
 var jobSchema = new mongoose.Schema({
-	position: { type: String, required: true },
+	owner: { type : mongoose.Schema.ObjectId, ref : 'User', required: true },
+	title: { type: String, required: true },
 	company: { type: String, required: true },
-	status: { type: Boolean, required: true }, // active or inactive
-	candidates: [{ type : mongoose.Schema.ObjectId, ref : 'Candidate' }]
+	description: { type: String, required: true }
 });
 
 // register schema

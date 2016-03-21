@@ -19,6 +19,7 @@
     "angular-ui-router": "~0.2.15",
     "satellizer": "~0.13.4",
     "angular-drag-and-drop-lists": "~1.4.0",
-    "angular-bootstrap": "~1.2.5"
+    "angular-bootstrap": "~1.2.5",
+    "textAngular": "~1.5.0"
   }
 }

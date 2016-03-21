@@ -1,13 +1,39 @@
+
+
 <div class='row'>
-	<div class='col-sm-12'>
-		<h1>Jobs</h1>
+	<div class='col-sm-6' style='border-right: 2px solid lightgray;'>
+		<h2>Add Job</h2>
+		<div class='form-group'>
+			<input type='text' ng-model='newJob.title' class='form-control' placeholder='Job Title (required)' required>
+		</div>
+		<div class='form-group'>
+			<input type='text' ng-model='newJob.company' class='form-control' placeholder='Company (required)'>
+		</div>
+		<div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" placeholder="Bill Rate (optional)">
+          </div>
+        </div>
+		<div class='form-group'>
+			<div text-angular ng-model="newJob.description" placeholder='Job Description goes here!'></div>
+		</div>
+		<div class='form-group pull-right'>
+			<div class='btn btn-lg btn-primary' ng-click='addJob(newJob)'>Add Job</div>
+		</div>
+	</div>
+	<div class='col-sm-6'>
+		<h2>My Jobs</h2>
+		<div ng-if='jobs.length<=0'>You have not added any jobs yet! Use the form on the left to get started.</div>
 
 		<div class='row' ng-repeat='job in jobs'>
-			{{job.title}}
-			{{job.company}}
-			{{job.candidates.length}} submitals
+			<div class="list-group">
+				<a class="list-group-item" href>
+				<h4 class="list-group-item-heading">{{job.company}}</h4>
+				<p class="list-group-item-text">{{job.title}}</p>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
 
-<pre>{{jobs | json}}</pre>

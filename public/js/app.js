@@ -3,7 +3,8 @@ var app = angular.module('Listor', [
 	'ui.router',
 	'ui.bootstrap',
 	'satellizer',
-	'dndLists'
+	'dndLists',
+	'textAngular'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider){
@@ -22,7 +23,12 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 		.state('jobs', {
 			url: "/jobs",
 			templateUrl: "templates/jobs.html",
-			controller: 'JobsCtrl'
+			controller: 'JobsCtrl',
+			resolve: {
+				setTheUser: function(Account){
+					return Account.setUser();
+				}
+			}
 		})
 		.state('about', {
 			url: "/about",

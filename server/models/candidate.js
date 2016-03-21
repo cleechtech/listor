@@ -6,7 +6,7 @@ var candidateSchema = new mongoose.Schema({
 	displayName: { type: String, required: true },
 	email: { type: String, unique: true, lowercase: true, required: true },
 	phone: { type: String, minlength: 10 },
-	status: { type: String, required: true },
+	status: { type: String, required: true, default: 'Needs Approval'},
 	comments: { type: String }
 });
 

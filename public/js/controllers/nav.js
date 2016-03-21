@@ -5,4 +5,4 @@ app.controller('NavCtrl', function($rootScope, $auth, Account){
 	$rootScope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
-})
+});
