@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h3 class="modal-title">Edit {{c.displayName}}</h3>
+    <h3 class="modal-title">Edit {{candModal.displayName}}</h3>
 </div>
 <div class="modal-body">
     <form name='editCandidateForm'>
@@ -8,7 +8,7 @@
             <input type='text' 
                 class='form-control' 
                 placeholder='Name'
-                ng-model='c.displayName'
+                ng-model='candModal.displayName'
                 required>
         </div>
 
@@ -17,7 +17,7 @@
             <input type='email' 
                 class='form-control' 
                 placeholder='Email'
-                ng-model='c.email'
+                ng-model='candModal.email'
                 required>
         </div>
 
@@ -26,12 +26,12 @@
             <input type='text' 
                 class='form-control' 
                 placeholder='Phone'
-                ng-model='c.phone'>
+                ng-model='candModal.phone'>
         </div>
 
         <div class="form-group">
           <label>Status</label>
-          <select class="form-control" ng-model='c.status' required>
+          <select class="form-control" ng-model='candModal.status' required>
             <option>Needs Approval</option>
             <option>Needs Feedback</option>
             <option>Needs Interview</option>
@@ -40,11 +40,11 @@
         </div>
 
         <div class='form-group'>
-            <textarea class='form-control' ng-model='c.comments'></textarea>
+            <textarea class='form-control' ng-model='candModal.comments'></textarea>
         </div>
 
         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        <div class='btn btn-primary pull-right' ng-click='editCandidate(c)' ng-disabled="editCandidateForm.$invalid">
+        <div class='btn btn-primary pull-right' ng-click='editCandidate(candModal)' ng-disabled="editCandidateForm.$invalid">
             Update
         </div>
     </form>

@@ -12,8 +12,7 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate, $uibModal
 	};
 
 	// edit candidate madal popup
-	$scope.editCandidate = function(candidate){
-		console.log(candidate);
+	$scope.editCandidate = function(candidate, fromList){
 
 		// create modal instance
     	var modalInstance = $uibModal.open({
@@ -23,21 +22,22 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate, $uibModal
 			size: 'sm',
 			resolve: {
 				candidate: function () {
+					// sync up the status, then pass to controller
+					candidate.status = fromList;
+					console.log(candidate);
 			  		return candidate;
 				}
 	    	}
     	});
 
-    	modalInstance.result.then(function (selectedItem) {
-    		console.log(selectedItem);
-      		$scope.selected = selectedItem;
+    	modalInstance.result.then(function (candidate) {
+    		console.log(candidate);
     	}, function () {
       		console.log('Modal dismissed at: ' + new Date());
     	});
 	};
 
 	$scope.deleteCandidate = function(c, listName){
-		console.log(c);
 		var ursure = confirm('sure you want to delete ' + c.displayName + '?');
 		if(ursure){
 			Candidate.remove(c._id).then(function(){
@@ -81,15 +81,8 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate, $uibModal
 
 	$scope.droppedTo = function(listName, item){
 		$scope.models.lists[listName].unshift(item);
-		console.log(item._id, listName);
 		Candidate.updateStatus(item._id, listName);
 		return true;
 	};
 
-    // Model to JSON for demo purpose
-    // $scope.$watch('models', function(model) {
-    //     $scope.modelAsJson = angular.toJson(model, true);
-    //     console.log(model);
-    //     ;
-    // }, true);
 });

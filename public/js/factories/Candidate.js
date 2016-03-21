@@ -21,7 +21,6 @@ app.factory('Candidate', function($http, $rootScope) {
 		},
 		// general update function for changing candidate's information
 		update: function(candidate){
-			console.log(candidate);
 			return $http.put('/api/candidates/update', candidate);
 		},
 		remove: function(id){

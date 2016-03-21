@@ -28,7 +28,6 @@ router.post('/add', function(req, res){
 	Candidate.findOne({ email: req.body.email }, function(err, existingCandidate){
 		if (existingCandidate) {
 			console.error('Candidate exists already!');
-			res.status(409);
 			return res.send({ message: 'Candidate exists already!' });
 		}
 
