@@ -14,10 +14,15 @@ app.factory('Candidate', function($http, $rootScope) {
 			return $http.post('/api/candidates/add', candidate);
 		},
 		updateStatus: function(id, newStatus){
-			return $http.put('/api/candidates/update', {
+			return $http.put('/api/candidates/updateStatus', {
 				id: id,
 				status: newStatus
 			});
+		},
+		// general update function for changing candidate's information
+		update: function(candidate){
+			console.log(candidate);
+			return $http.put('/api/candidates/update', candidate);
 		},
 		remove: function(id){
 			return $http.delete('/api/candidates/' + id);

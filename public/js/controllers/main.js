@@ -1,5 +1,5 @@
 
-app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
+app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate, $uibModal){
 	$scope.master = {};
 	$scope.c = {};
 	$scope.showAddForm = false;
@@ -11,8 +11,34 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 		});
 	};
 
+	// edit candidate madal popup
+	$scope.editCandidate = function(candidate){
+		console.log(candidate);
+
+		// create modal instance
+    	var modalInstance = $uibModal.open({
+			animation: false,
+			templateUrl: 'templates/modal-editCandidate.html',
+			controller: 'ModalInstanceCtrl',
+			size: 'sm',
+			resolve: {
+				candidate: function () {
+			  		return candidate;
+				}
+	    	}
+    	});
+
+    	modalInstance.result.then(function (selectedItem) {
+    		console.log(selectedItem);
+      		$scope.selected = selectedItem;
+    	}, function () {
+      		console.log('Modal dismissed at: ' + new Date());
+    	});
+	};
+
 	$scope.deleteCandidate = function(c, listName){
-		var ursure = confirm('sure you want to delete ', c.displayName, '?');
+		console.log(c);
+		var ursure = confirm('sure you want to delete ' + c.displayName + '?');
 		if(ursure){
 			Candidate.remove(c._id).then(function(){
 				var list = $scope.models.lists[listName];
@@ -20,7 +46,6 @@ app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate){
 				list.splice(list.indexOf(c), 1);
 			});
 		}
-		
 	};
 
 	$scope.reset = function() {

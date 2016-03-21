@@ -1,6 +1,7 @@
 
 var app = angular.module('Listor', [
 	'ui.router',
+	'ui.bootstrap',
 	'satellizer',
 	'dndLists'
 ]);

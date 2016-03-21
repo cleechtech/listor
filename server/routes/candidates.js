@@ -23,6 +23,7 @@ router.get('/', function(req, res){
  |--------------------------------------------------------------------------
  */
 router.post('/add', function(req, res){
+	console.log('owner: ', req.query.owner);
 
 	Candidate.findOne({ email: req.body.email }, function(err, existingCandidate){
 		if (existingCandidate) {
@@ -48,6 +49,40 @@ router.post('/add', function(req, res){
 		  res.send(result);
 		});
 	});
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Update candidate's information
+ |--------------------------------------------------------------------------
+ */
+router.put('/update', function(req, res){
+
+	// update candidate and return the updated candidate
+	Candidate.findByIdAndUpdate(req.body._id, req.body, { new: true }, function(err, c){
+		if(err){
+			res.send({message: 'Error updating candidate!'});
+		} else {
+			res.send(c);
+		}
+	});
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Update a Candidate's Status
+ |--------------------------------------------------------------------------
+ */
+router.put('/updateStatus', function(req, res){
+ 	var id = req.body.id;
+ 	var status = req.body.status;
+
+ 	Candidate.findByIdAndUpdate(id, { $set: { status: status }}, function(err, c){
+ 		// callback for after update operation
+ 		if(err){
+ 			res.send({ message: 'Candidate exists already!' });
+ 		}
+ 	});
 });
 
 /*
@@ -80,20 +115,6 @@ function getCandidatesWithStatus(req, res, status){
 		res.send(candidates);
 	});
 }
-
-/*
- |--------------------------------------------------------------------------
- | Update a Candidate's Status
- |--------------------------------------------------------------------------
- */
-router.put('/update', function(req, res){
- 	var id = req.body.id;
- 	var status = req.body.status;
-
- 	Candidate.findByIdAndUpdate(id, { $set: { status: status }}, function(err, c){
- 		// callback for after update operation
- 	});
-});
 
 /*
  |--------------------------------------------------------------------------
