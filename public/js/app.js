@@ -23,6 +23,10 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 			templateUrl: "templates/jobs.html",
 			controller: 'JobsCtrl'
 		})
+		.state('about', {
+			url: "/about",
+			templateUrl: "templates/about.html",
+		})
 		.state('register', {
 			url: "/register",
 			templateUrl: "templates/register.html",
