@@ -3,6 +3,14 @@ nav {
     font-size:20px;
 }
 
+.list-title {
+    min-height: 100px;
+}
+
+.candidate {
+    background-color: rgb(240,240,240) ;
+}
+
 /**
  * For the correct positioning of the placeholder element, the dnd-list and
  * it's children must have position: relative
@@ -18,7 +26,8 @@ ul[dnd-list] > li {
  */
 ul[dnd-list] {
     min-height: 600px;
-    padding-left: 0px;
+    padding: 0px;
+    border: 2px solid lightgray;
 }
 
 /**
@@ -50,7 +59,6 @@ ul[dnd-list] .dndPlaceholder {
  * browsers we can use event.offsetY for this.
  */
 ul[dnd-list] li {
-    background-color: #fff;
     border: 1px solid #ddd;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
