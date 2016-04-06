@@ -20,6 +20,9 @@ app.factory('Job', function($http, $rootScope){
 		all: function(){
 			return request_jobs('GET', '/api/jobs');
 		},
+		getOne: function(id){
+			return $http.get('/api/jobs/' + id);
+		},
 		add: function(newJob){
 			return request_jobs('POST', '/api/jobs', newJob);
 		},

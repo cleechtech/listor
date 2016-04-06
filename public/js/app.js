@@ -30,6 +30,17 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider){
 				}
 			}
 		})
+		.state('job', {
+			url: "/jobs/:id",
+			templateUrl: "templates/job.html",
+			controller: 'JobCtrl',
+			resolve: {
+				theJob: function(Job, $stateParams){
+					// grab individual job
+					return Job.getOne($stateParams.id);
+				}
+			}
+		})
 		.state('about', {
 			url: "/about",
 			templateUrl: "templates/about.html",

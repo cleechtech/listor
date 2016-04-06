@@ -28,9 +28,13 @@
 
 		<div class='row' ng-repeat='job in jobs'>
 			<div class="list-group">
-				<a class="list-group-item" href>
-				<h4 class="list-group-item-heading">{{job.company}}</h4>
-				<p class="list-group-item-text">{{job.title}}</p>
+				<a class="list-group-item" ui-sref='job({id: job._id})'>
+					<h4 class="list-group-item-heading">
+						{{job.company}}
+					</h4>
+					<p class="list-group-item-text">
+						{{job.title}}
+					</p>
 				</a>
 			</div>
 		</div>

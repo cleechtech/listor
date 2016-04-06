@@ -34,4 +34,20 @@ router.post('/', function(req, res){
 	});
 });
 
+/*
+ |--------------------------------------------------------------------------
+ | Get a job by id
+ |--------------------------------------------------------------------------
+ */
+ router.get('/:id', function(req, res){
+ 	var job_id = req.params.id;
+
+ 	// send the job
+ 	Job.findById(job_id, function(err, job){
+ 		if(err) return err;
+
+ 		res.send(job);
+ 	});
+ });
+
 module.exports = router;
