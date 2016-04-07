@@ -7,7 +7,8 @@ var candidateSchema = new mongoose.Schema({
 	email: { type: String, unique: true, lowercase: true, required: true },
 	phone: { type: String, minlength: 10 },
 	status: { type: String, required: true, default: 'Needs Approval'},
-	comments: { type: String }
+	comments: { type: String },
+	jobs: [{ type : mongoose.Schema.ObjectId, ref : 'Job' }]
 });
 
 // register schema

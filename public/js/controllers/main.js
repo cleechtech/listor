@@ -1,11 +1,24 @@
 
-app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate, $uibModal){
+app.controller('MainCtrl', function($rootScope, $scope, $q, Candidate, $uibModal, Job, $timeout){
 	$scope.master = {};
 	$scope.c = {};
 	$scope.showAddForm = false;
 
+	// .....yeah
+	$timeout(function(){
+		Job.all().then(function(res){
+			$scope.jobs = res.data;
+
+			// make a pretty string
+			res.data.forEach(function(job, i){
+				$scope.jobs[i].displayString = job.title + ' - ' + job.company;
+			});
+		});
+	});
+
 	$scope.addCandidate = function(candidate){
 		candidate.owner = $rootScope.user._id;
+		console.log(candidate);
 		return Candidate.add(candidate).then(function(res){
 			$scope.reset();
 		});

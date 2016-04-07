@@ -43,6 +43,13 @@
 			  </select>
 			</div>
 
+			<div class="form-group">
+			  <label>Job</label>
+
+			  <select class="form-control" ng-options="job.displayString for job in jobs track by job._id" ng-model='c.job' required>
+			  </select>
+			</div>
+
 			<div class='form-group'>
 				<textarea class='form-control' ng-model='c.comments' placeholder='Comments (optional)'></textarea>
 			</div>

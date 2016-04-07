@@ -5,7 +5,8 @@ var jobSchema = new mongoose.Schema({
 	owner: { type : mongoose.Schema.ObjectId, ref : 'User', required: true },
 	title: { type: String, required: true },
 	company: { type: String, required: true },
-	description: { type: String, required: true }
+	description: { type: String, required: true },
+	candidates: [{ type : mongoose.Schema.ObjectId, ref : 'Candidate' }]
 });
 
 // register schema

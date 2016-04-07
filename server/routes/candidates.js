@@ -30,13 +30,17 @@ router.post('/add', function(req, res){
 			return res.send({ message: 'Candidate exists already!' });
 		}
 
+		// _id of job
+		var job_submitting_to = [req.body.job];
+
 		var candidate = new Candidate({
 			owner: req.body.owner,
 			displayName: req.body.displayName,
 			email: req.body.email,
 			phone: req.body.phone,
 			status: req.body.status,
-			comments: req.body.comments
+			comments: req.body.comments,
+			jobs: job_submitting_to
 		});
 
 		candidate.save(function(err, result){

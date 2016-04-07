@@ -7,6 +7,9 @@ Listor
 
 * Angular Drag N Drop: http://marceljuenemann.github.io/angular-drag-and-drop-lists/demo/#/simple
 
+- Job has many Candidates, Candidates has many Jobs
+- Candidate belongs to User
+
 ### Getting started
 ```
 $ git clone <this_repo_url>
