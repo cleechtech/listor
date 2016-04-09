@@ -13,6 +13,15 @@ var userSchema = new mongoose.Schema({
 // executed before a new user is saved
 userSchema.pre('save', function(next) {
   var user = this;
+  var domain = user.email.split('@')[1];
+
+  // check email validity 
+  if(domain !== 'mondo.com'){
+    console.log('not a valid email');
+
+    return next(new Error("Not a valid email"));
+  }
+
   if (!user.isModified('password')) {
     return next();
   }

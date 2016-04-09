@@ -16,7 +16,8 @@ var utils = require('../utils');
 router.post('/auth/signup', function(req, res) {
 
 	User.findOne({ email: req.body.email }, function(err, existingUser) {
-		if (existingUser) {
+		
+    if (existingUser) {
 			console.error('User exists already!');
 			res.status(409);
 			return res.send({ message: 'Email is already taken' });
@@ -31,9 +32,11 @@ router.post('/auth/signup', function(req, res) {
 		user.save(function(err, result) {
 		  if (err) {
 		  	console.error('Error saving the user!');
-		    res.status(500).send({ message: err.message });
-		  }
-		  res.send({ token: utils.createJWT(result) });
+        console.log(err);
+		    res.send({ message: err.message });
+		  } else {
+        res.send({ token: utils.createJWT(result) });
+      }
 		});
 	});
 });
